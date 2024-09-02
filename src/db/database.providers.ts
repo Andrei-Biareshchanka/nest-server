@@ -1,5 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { User } from '../entities/users/user.entity';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const databaseProviders = [
   {
