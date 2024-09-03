@@ -11,9 +11,13 @@ export class AuthController {
       loginDto.name,
       loginDto.password,
     );
+
     if (!user) {
       return { message: 'Invalid credentials' };
     }
-    return this.authService.login(user);
+
+    const { token, user: userData } = await this.authService.login(user);
+
+    return { token, user: userData };
   }
 }
